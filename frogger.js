@@ -86,6 +86,7 @@ function populate(){
     p1.bet = 0;
 }
 function end(){
+    document.getElementById("winstate").innerText = "Bet to play again!";
     p1.total += p1.winnings;
     if(p1.winnings > 0){
         playAudio('sounds/win.wav');   
@@ -135,9 +136,6 @@ function flip(id){
         p1.winnings = 0;
         animateValue(winning_box, p1.winnings);
         playAudio('sounds/frog_lose.wav');
-       
-        let statement = document.getElementById("winstate");
-        statement.innerText = "You were poisoned, bet to play again!";
         end();
         return;
     }
